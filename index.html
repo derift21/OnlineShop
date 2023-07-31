@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="shortcut icon" href="./assets/img/tiny-logo.png" type="image/x-icon">
+    <title>DASHBOARD</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="./assets/fonts/fa5/css/all.min.css">
+    <link rel="stylesheet" href="./src/pace/themes/black/pace-theme-flash.css"/>
+    <link rel="stylesheet" href="./src/kursor.js/kursor.css">
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <style>
+      .timeStamp {
+    display: flex;
+    justify-content: space-between;
+    margin: 20px 15px;
+}
+.timeStamp .greet {
+    color: #000000;
+}
+.timeStamp .greet p {
+    font-size: 16px;
+    margin: 0;
+    margin-bottom: 10px;
+    letter-spacing: 0.5px;
+}
+.timeStamp .greet h1 {
+  margin: 0;
+    font-size: 40px;
+    font-weight: 500;
+    line-height: 15px;
+}
+.timeStamp .dayIcon {
+    width: 52px;
+    height: 52px;
+}
+.timeStamp .dayIcon i {
+    font-size: 60px;
+    margin-left: -5px;
+    color: yellow;
+}
+
+.G-widget {
+    display: flex;
+    flex-grow: 1;
+    flex-direction: column;
+    box-shadow: 0 0 13px 0 rgba(82,63,105,.05);
+    /* background-color: #ffffff; */
+    margin-bottom: 20px;
+    border-radius: 4px;
+   height: calc(100% - 20px);
+}
+
+.G-widget .G-widget_body {
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  /* padding: 15px; */
+}
+.G-widget_stats {
+    margin: auto;
+    width: 100%;
+}
+
+.G-widget_stats .G-widget_items {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.G-widget_stats .G-widget_items .G-widget_item {
+    padding: 1rem;
+    flex: 1 1 120px;
+    overflow: hidden;
+    background-color: #fff;
+    margin: .3rem;
+    box-shadow: 0 1px 15px 1px rgba(69,65,78,.3);
+    cursor: pointer;
+    border-radius: 3px;
+    transition: all 0.2s ease;
+}
+.G-widget_stats .G-widget_items .G-widget_item .G-widget_icon {
+    display: block;
+}
+.G-widget_stats .G-widget_items .G-widget_item .G-widget_icon i {
+    font-size:4rem;
+    color:black;
+}
+.G-widget_stats .G-widget_items .G-widget_item .G-widget_subtitle {
+    display: block;
+    margin-top: .70rem;
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #595d6e;
+}
+.G-widget_stats .G-widget_items .G-widget_item .G-widget_desc {
+    display: block;
+    font-size: 1.0rem;
+    color: #74788d;
+}
+
+
+.price {
+  padding: 0.25em 0.5em;
+  border-radius: 0.25rem;
+  background-color: palegreen;
+  font-family: monospace;
+  font-size: 1.25em;
+}
+    </style>
+</head>
+<body>
+    <div id="responsive-admin-menu">
+        <div id="responsive-menu"><a href="index.html"><i class="fa fa-home-lg-alt" style="margin-left: -7px;color: #fff;"></i> WR GAMES</a>
+            <div class="menuicon">&equiv;</div>
+        </div>
+        
+        <div id="logo"></div>
+    
+        <!--Menu-->
+        <div id="menu">
+            <a class="active" href="" title="Dashboard"><i class="fad fa-home"></i><span> Dashboard</span></a>
+            <a href="" title="News"><i class="fad fa-bullhorn"></i><span> News</span></a>
+            <a href="" title="Pages"><i class="fad fa-file-alt"></i><span> Pages</span></a>
+            <a href="" title="Media" class="submenu" name="media-sub"><i class="fad fa-eye"></i><span> Media</span></a>
+            <!-- Media Sub Menu -->
+                <div id="media-sub">
+                    <a href="" title="Video Gallery"><i class="fad fa-film"></i><span> Video Gallery</span></a>
+                    <a href="" title="Photo Gallery"><i class="fad fa-picture"></i><span> Photo Gallery</span></a>
+                </div>
+            <!-- Media Sub Menu -->
+            
+            <a href="" title="Graph &amp; Charts"><i class="fad fa-adjust"></i><span> Graph &amp; Charts</span></a>
+            <a href="" title="Events"><i class="fad fa-calendar"></i><span> Events</span></a>
+
+            <a href="" class="submenu" name="other-sub" title="Other Contents"><i class="fad fa-book"></i><span> Other Contents</span></a>
+            <!-- Other Contents Sub Menu -->
+                <div id="other-sub">
+                    <a href="" title="Forms"><i class="fad fa-list"></i><span> Forms</span></a>
+                    <a href="" title="Mail Lists"><i class="fad fa-list-ul"></i><span> Mail Lists</span></a>
+                    <a href="" title="Maps"><i class="fad fa-map-marker"></i><span> Maps</span></a>
+                </div>
+            <!-- Other Contents Sub Menu -->
+            <a href="" title="Admin Tools"><i class="fad fa-cogs"></i><span> Admin Tools</span></a>
+
+            <f class="footer__menu">
+              <ul>
+                <li>
+                  <button class="active" type="button"><i class="far fa-home-lg-alt"></i>Home</button>
+                </li>
+                <li>
+                  <button type="button"><i class="far fa-search"></i>Search</button>
+                </li>
+                <li>
+                  <button class="notification" data-notification="15" type="button"><i class="far fa-bell"></i>Notification</button>
+                </li>
+                <li>
+                  <button type="button"><i class="far fa-comment"></i>Messages</button>
+                </li>
+              </ul>
+            </f>
+            <f class="footer__menu pinned">
+              <ul>
+                <li>
+                  <button class="active" type="button"><i class="fas fa-ellipsis-h"></i></button>
+                </li>
+              </ul>
+            </f>
+        </div>        
+        <!--Menu-->
+    </div>
+    <div id="nav-header">
+        <div class="container">
+            <form id="frmCari">
+                <div class="form-input">
+                    <input type="text" class="form-control" id="globalSearch" placeholder="&#xF002; Cari" style="font-family: Arial, 'Font Awesome 5 Pro'">
+                </div>
+            </form>
+            <div class="notification">
+                <i class="fal fa-shopping-cart"></i>
+                <div class="xshow-cnotif"></div>
+            </div>
+            <div href="#" class="profile">
+                <img src="https://sipdos.kom/assets/templates/deriftryd/assets/img/avatars/default-user.png">
+                <ul class="profile-link" style="text-decoration: none;">
+                    <li>
+                        <a href="?page=examples&amp;e=setting">
+                        <i class="fal fa-cog"></i> Pengaturan Akun </a>
+                    </li>
+                    <li>
+                        <a href="#" data-toggle="modal" data-target="#logOut" data-backdrop="static">
+                        <i class="fal fa-sign-out-alt"></i> Keluar </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div id="content-wrapper">
+        <div class="content">
+            <div class="timeStamp">
+              <div class="greet">
+                <p>Good Morning</p>
+                <h1>Praveen</h1>
+              </div>
+              <div class="dayIcon"><i class="fa fa-sun"></i></div>
+            </div>
+            
+<div class="container">
+    <div class="G-widget">
+        <div class="G-widget_body">
+            <div class="G-widget_stats">
+                <div class="G-widget_items">
+                    <div class="G-widget_item" style="border-bottom:2px solid #3375c8;">
+                        <span class="G-widget_icon">
+                            <i class="fas fa-sign-in-alt" style="color: #3375c8;"></i>
+                        </span>
+                        <span class="G-widget_subtitle">
+                            ใบสมัครกองทุน
+                        </span>
+                        <span class="G-widget_desc">
+                            5 รายการ
+                        </span>
+                    </div>
+                    <div class="G-widget_item" style="border-bottom:2px solid #564aa3;">
+                        <span class="G-widget_icon">
+                            <i class="fas fa-chart-line" style="color:#564aa3;"></i>
+                        </span>
+                        <span class="G-widget_subtitle">
+                            เปลี่ยนแปลงเงินสะสม
+                        </span>
+                        <span class="G-widget_desc">
+                            65 รายการ
+                        </span>
+                    </div>
+                    <div class="G-widget_item" style="border-bottom:2px solid #b66a34;">
+                        <span class="G-widget_icon">
+                            <i class="fas fa-users" style="color:#b66a34;"></i>
+                        </span>
+                        <span class="G-widget_subtitle">
+                            เปลี่ยนแปลงผู้รับผลประโยชน์
+                        </span>
+                        <span class="G-widget_desc">
+                            20 รายการ
+                        </span>
+                    </div>
+                    <div class="G-widget_item" style="border-bottom:2px solid #2b957a;">
+                        <span class="G-widget_icon">
+                            <i class="fas fa-sign-out-alt" style="color:#2b957a;"></i>
+                        </span>
+                        <span class="G-widget_subtitle">
+                            ใบสิ้นสุดสมาชิกภาพ
+                        </span>
+                        <span class="G-widget_desc">
+                            0 รายการ
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+  <ul role="list" class="flexbox-grid">
+    <li class="card" style="--min: 45ch">
+      <div class="card__header">
+        <h3>Iure Assumenda Consectetur Esse</h3>
+        <span class="price">$399</span>
+      </div>
+      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse minima dolores assumenda.</p>      
+      <a class="btn c1 material" onclick="playMac()">Material Button</a>
+    </li>
+    <li class="card">
+      <div class="card__header">
+        <h3>Iure Assumenda Consectetur Esse</h3>
+        <span class="price">$399</span>
+      </div>
+      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse minima dolores assumenda.</p>
+      <a class="btn c2 material" onclick="playMac()">Google Material</a>
+    </li>
+  </ul>
+</div>
+
+            <a data-toggle="modal" data-target="#DF21modal" aria-hidden="true" class="additem" style="display: inline-block; bottom: 80px;"><span class="fa fa-plus"></span></a>
+        </div>
+
+        <hr class="m-0">
+        <footer>
+          <div class="container">
+              <span class="text-muted">© 2023 DF21</span>                    
+    
+              <ul class="footer__link" style="padding-right: 0;">
+                  <li class="mr-3"><span id="load_time" class="text-muted"> 0.00s (0kb)</span></li>
+                  <li class="mr-3"><a class="text-muted" href="javascript:void(0);"><span class="fab fa-google-plus-square" style="vertical-align: -.125em;
+            fill: currentColor;"></span></a></li>
+                  <li class="mr-3"><a class="text-muted" href="javascript:void(0);"><span class="fab fa-whatsapp-square" style="vertical-align: -.125em;
+            fill: currentColor;"></span></a></li>
+                  <li class="mr-0"><a class="text-muted" href="javascript:void(0);"><span class="fab fa-linkedin" style="vertical-align: -.125em;
+            fill: currentColor;"></span></a></li>
+              </ul>
+          </div>                                
+        </footer>
+    </div>    
+    <div class="nav-mobile">
+      <ul>
+        <li>
+          <button class="active" type="button"><i class="far fa-home-lg-alt"></i>Home</button>
+        </li>
+        <li>
+          <button type="button"><i class="far fa-search"></i>Search</button>
+        </li>
+        <li>
+          <button class="notification" data-notification="15" type="button"><i class="far fa-bell"></i>Notification</button>
+        </li>
+        <li>
+          <button type="button"><i class="far fa-comment"></i>Messages</button>
+        </li>
+      </ul>
+    </div>    
+    <script>
+        const webroukBackTopScrollIndicatorTemplate = document.createElement("template");
+      webroukBackTopScrollIndicatorTemplate.innerHTML = `
+        <style>
+          :host,
+          :host * {
+            -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+          }
+          :host {
+            --w-primary-color-fb: 218, 95%, 54%;
+            --w-diameter-size-fb: 46px;
+          
+            position: fixed;
+            z-index: 1990;
+            bottom: 25px;
+            height: var(--w-diameter-size, var(--w-diameter-size-fb));
+            width: var(--w-diameter-size, var(--w-diameter-size-fb));
+            -webkit-transition: all 0.3s ease-in-out;
+            -o-transition: all 0.3s ease-in-out;
+            transition: all 0.3s ease-in-out;
+          }
+          :host-context([dir="ltr"]) {
+            right: 25px;
+          }
+          :host-context([dir="rtl"]) {
+            left: 25px;
+          }
+          :host(:not(:host(.show))) {
+            visibility: hidden;
+            opacity: 0;
+            -webkit-transform: translateY(10px);
+            -ms-transform: translateY(10px);
+            transform: translateY(10px);
+          }
+          .back-top-btn {
+            display: block;
+            height: 100%;
+            width: 100%;
+            background-color: transparent;
+            padding: 0;
+            border: 0;
+            outline: 0;
+            border-radius: 50%;
+            cursor: pointer;
+            -webkit-box-shadow: 0 0 0 2px hsla(var(--w-primary-color), 25%) inset;
+            box-shadow: 0 0 0 2px hsla(var(--w-primary-color), 25%) inset;
+          }
+          .back-top-btn svg path {
+            fill: none;
+            stroke: hsl(var(--w-primary-color, hsl(var(--w-primary-color-fb))));
+            stroke-width: 5;
+          }
+          .back-top-btn::after {
+            content: "";
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            -webkit-transform: translate(-50%, -50%);
+            -ms-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+            height: 40%;
+            width: 25%;
+            background-color: hsl(var(--w-primary-color, hsl(var(--w-primary-color-fb))));
+            -webkit-clip-path: polygon(0 30%, 50% 0, 100% 30%, 94% 39%, 58% 17%, 58% 100%, 42% 100%, 42% 17%, 6% 39%);
+            clip-path: polygon(0 30%, 50% 0, 100% 30%, 94% 39%, 58% 17%, 58% 100%, 42% 100%, 42% 17%, 6% 39%);
+          }  
+        </style>
+      
+        <button part="button" class="back-top-btn">
+          <svg part="svg" width="100%" height="100%" viewBox="-1 -1 102 102">
+            <path part="path" d="M50,1 a49,49 0 0,1 0,98 a49,49 0 0,1 0,-98" />
+          </svg>
+        </button>
+      `;
+      
+      class WebroukBackTopScrollIndicator extends HTMLElement {
+      
+        _BTSI_btn;
+        _BTSI_progressPath;
+        _BTSI_progressPathLength;
+        _BTSI_showAt;
+      
+        constructor() {
+          super();
+      
+          this.attachShadow({ mode: "open" });
+          this.shadowRoot.appendChild(webroukBackTopScrollIndicatorTemplate.content.cloneNode(true));
+        }
+      
+        connectedCallback() {
+          this._initBackTopScrollIndicator();
+          this._BTSI_btn.addEventListener("click", this._onClickingBackTop.bind(this));
+          document.addEventListener("scroll", this._onScrollingDocument.bind(this));
+        }
+      
+        disconnectedCallback() {
+          this._BTSI_btn.removeEventListener("click", this._onClickingBackTop);
+          document.removeEventListener("scroll", this._onScrollingDocument);
+        }
+      
+        // initialize back top scroll indicator
+        _initBackTopScrollIndicator() {
+          this._BTSI_showAt   = this.getAttribute("show-at") || 50;
+          this._BTSI_btn = this.shadowRoot.querySelector(".back-top-btn");
+          this._BTSI_progressPath = this._BTSI_btn.querySelector("path");
+          this._BTSI_progressPathLength = this._BTSI_progressPath.getTotalLength();
+      
+          this._BTSI_progressPath.style.strokeDasharray = `${this._BTSI_progressPathLength} ${this._BTSI_progressPathLength}`;
+          this._BTSI_progressPath.style.strokeDashoffset = this._BTSI_progressPathLength;
+      
+          // actions on scrolling
+          this._onScrollingDocument();
+        }
+      
+        // actions on scrolling
+        _onScrollingDocument() {
+          const scrollPosition = window.scrollY;
+          const pageHeight = document.body.clientHeight - window.innerHeight;
+          const scrollProgress = this._BTSI_progressPathLength - (scrollPosition * this._BTSI_progressPathLength) / pageHeight;
+      
+          (scrollPosition >= this._BTSI_showAt) ? this.classList.add("show") : this.classList.remove("show");
+      
+          this._BTSI_progressPath.style.strokeDashoffset = scrollProgress;
+        }
+      
+        // actions on clicking back to top button
+        _onClickingBackTop() {
+          window.scroll({ top: 0, behavior: "smooth" });
+        }
+      }
+      
+      window.customElements.define("webrouk-back-top-scroll-indicator", WebroukBackTopScrollIndicator);
+      </script>
+      <style>
+        webrouk-back-top-scroll-indicator {
+        --w-primary-color: 142, 71%, 31%;
+        --w-diameter-size: 46px;
+      }
+      </style>
+      
+      <div dir="ltr">
+        <webrouk-back-top-scroll-indicator
+          title="Back to Top"
+          show-at="50">
+        </webrouk-back-top-scroll-indicator>
+      </div>
+    <!-- <webrouk-back-top-scroll-indicator title="Back to Top" show-at="50">
+    </webrouk-back-top-scroll-indicator> -->
+
+    <script src="./src/jquery/jquery-3.7.0.min.js"></script>
+    <!-- <script src="./assets/js/webrouk-back-top-scroll-indicator.js" async defer></script>     -->
+    <script src="./src/kursor.js/kursor.min.js"></script>    
+    <script src="./src/pace/pace.js"></script>
+    <script src="./assets/js/ripple-effects@1.0.2.min.js"></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.bundle.min.js'></script>    
+    <script src="./assets/js/script.js" async defer></script>
+</body>
+</html>
